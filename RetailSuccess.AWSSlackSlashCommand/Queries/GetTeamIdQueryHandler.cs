@@ -1,0 +1,30 @@
+﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Octokit;
+using Paramore.Darker;
+
+namespace RetailSuccess.GitHub.Queries
+{
+    public partial class GetTeamId
+    {
+        public class QueryHandler : QueryHandlerAsync<Query, QueryResult>
+        {
+            private readonly GitHubClient _client;
+
+            public QueryHandler(GitHubClientOptions options)
+            {
+                _client = options.GitHubClientFactory();
+            }
+
+            public override async Task<QueryResult> ExecuteAsync(Query query,
+                CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var teams = await _client.Organization.Team.GetAll(query.Organization);
+                //TODO delete this guard clause so it blows up?
+                if (teams.FirstOrDefault(x => x.Name == query.TeamName) == null) return new QueryResult {TeamId = null};
+                return new QueryResult {TeamId = teams.FirstOrDefault(x => x.Name == query.TeamName).Id};
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.1.0" />
+    <PackageReference Include="AWSSDK.APIGateway" Version="3.3.16.3" />
+    <PackageReference Include="Flurl.Http" Version="2.2.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Octokit" Version="0.29.0" />
+    <PackageReference Include="RetailSuccess.DependencyInjection" Version="0.0.0" />
+    <PackageReference Include="RetailSuccess.Paramore.Brighter.DependencyInjection" Version="0.6.0" />
+    <PackageReference Include="RetailSuccess.Paramore.Darker.DependencyInjection" Version="0.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Amazon.Lambda.Tools" Version="2.1.2" />
+  </ItemGroup>
+
+</Project>
