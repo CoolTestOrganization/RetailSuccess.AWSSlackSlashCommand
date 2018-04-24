@@ -42,7 +42,7 @@ personal access token.  See the class, "GitCredentials" for information on how t
 10. Click the box, Integration Request, then under Body Mapping templates, Request Body Passthrough: check Never.
 11. Click Add Mapping Template... name it: application/json.
 12. Add the following Code:
-<!--
+```
 ## convert HTML POST data or HTTP GET query string to JSON
  
 ## get the raw post data from the AWS built-in variable and give it a nicer name
@@ -94,4 +94,4 @@ personal access token.  See the class, "GitCredentials" for information on how t
  "$util.urlDecode($kvTokenised[0])" : #if($kvTokenised[1].length() > 0)"$util.urlDecode($kvTokenised[1])"#{else}""#end#if( $foreach.hasNext ),#end
 #end
 }
--->
+```
